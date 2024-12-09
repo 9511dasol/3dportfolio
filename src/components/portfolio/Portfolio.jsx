@@ -35,6 +35,8 @@ const items = [
   },
 ];
 
+export const num = items.length;
+
 const imgVariants = {
   initial: {
     x: -500,
@@ -150,11 +152,9 @@ const Portfolio = () => {
           <ListItem item={item} key={idx} />
         ))}
       </motion.div>
-      <section />
-      <section />
-      <section />
-      <section />
-      <section />
+      {items.map((item, idx) => (
+          <section key={idx} />
+        ))}
       <div className="pProgress">
         <svg width="100%" height="100%" viewBox="0 0 160 160">
           <circle
