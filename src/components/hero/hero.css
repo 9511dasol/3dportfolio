@@ -228,6 +228,10 @@
         flex-direction: column;
     }
 
+    .scroll {
+        display: none;
+    }
+    
     .hSection {
         width: 100%;
     }
