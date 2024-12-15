@@ -15,9 +15,9 @@ function Speech() {
         <TypeAnimation
           sequence={[
             1000,
-            texts[0],
-            1000, // wait 1s before replacing "Mice" with "Hamsters"
             texts[1],
+            1000, // wait 1s before replacing "Mice" with "Hamsters"
+            texts[0],
             1000,
           ]}
           wrapper="span"
