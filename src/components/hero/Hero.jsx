@@ -4,7 +4,7 @@ import Speech from "./Speech";
 import Shape from "./Shape";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-
+import "boxicons/css/boxicons.min.css";
 const awarVariants = {
   initial: {
     x: -100,
@@ -40,10 +40,10 @@ function Hero() {
           transition={{ duration: 1 }}
           className="hTitle"
         >
-          Hey, There, <br /> <span>i'm Dasol</span>
+          Hi! <br /> <span>I'm Dasol Han.</span>
         </motion.h1>
         {/* AWARDS */}
-        <motion.div
+        {/* <motion.div
           variants={awarVariants}
           initial="initial"
           animate="animate"
@@ -58,12 +58,13 @@ function Hero() {
             <motion.img variants={awarVariants} src="/award2.png" alt="" />
             <motion.img variants={awarVariants} src="/award3.png" alt="" />
           </motion.div>
-        </motion.div>
+        </motion.div> */}
         {/* SCROLL SVG */}
         <motion.a
           animate={{ y: [0, 5], opacity: [0, 1, 0] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          href="/#services"
+          href="./한다솔__이력서.pdf"
+          download="HDS_Resume.pdf"
           className="scroll"
         >
           <svg
@@ -101,23 +102,36 @@ function Hero() {
           initial="initial"
           animate="animate"
         >
-          <motion.a variants={followVariants} href="/">
+          <motion.a
+            variants={followVariants}
+            href="/"
+            onClick={() => alert("준비중")}
+          >
             <img src="/instagram.png" alt="" />
           </motion.a>
-          <motion.a variants={followVariants} href="/">
-            <img src="/facebook.png" alt="" />
+          <motion.a
+            variants={followVariants}
+            href="https://velog.io/@9511dasol/posts"
+            target="_blank"
+          >
+            <img src="/blog.png" alt="" />
           </motion.a>
-          <motion.a variants={followVariants} href="/">
-            <img src="/youtube.png" alt="" />
+          <motion.a
+            target="_blank"
+            variants={followVariants}
+            href="https://github.com/9511dasol"
+            style={{ color: "white" }}
+          >
+            <i className="bx bxl-github bx-sm"></i>
           </motion.a>
-          <motion.div variants={followVariants} className="followTextContainer">
+          {/* <motion.div variants={followVariants} className="followTextContainer">
             <div className="followText">FOLLOW ME</div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
         {/* BUBBLE */}
         <Speech />
         {/* CERTIFICATE */}
-        <motion.div
+        {/* <motion.div
           className="certificate"
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 1 }}
@@ -126,10 +140,10 @@ function Hero() {
           LMA CERTIFICATED <br />
           PROFESSIONAL <br />
           UI DESIGNER
-        </motion.div>
+        </motion.div> */}
         {/* CONTACT BUTTON */}
         <motion.a
-          href="/#contact"
+          href="#contact"
           className="contactLink"
           animate={{ x: [200, 0], opacity: [0, 1] }}
           transition={{ duration: 2 }}
@@ -180,7 +194,7 @@ function Hero() {
           </Suspense>
         </Canvas>
         <div className="hImg">
-          <img src="/hero.png" alt="" />
+          <img src="/my_pic.png" alt="" />
         </div>
       </div>
     </div>

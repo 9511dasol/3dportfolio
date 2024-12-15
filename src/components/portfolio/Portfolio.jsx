@@ -4,39 +4,56 @@ import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 const items = [
   {
-    img: "/p1.jpg",
-    title: "Full Stack Blog Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "./img/project/card.png",
+    title: "카드를 추천해주는 청년들",
+    desc: "AI(자연어 처리)를 이용한 카드 추천 웹사이트 제작.",
+    link: "https://github.com/9511dasol/Card",
   },
   {
-    img: "/p2.jpg",
-    title: "School Management System",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "./img/project/taja.png",
+    title: "영어 타자 연습",
+    desc: "영어 긴 글 타자 연습 프로그램 만들기.",
+    link: "https://github.com/9511dasol/Eng_Taja_Practice",
   },
   {
-    img: "/p3.jpg",
-    title: "Real-time Chat Application",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "./img/project/lotto.png",
+    title: "Lotto Program",
+    desc: "오픈소스스를 활용한 로또 프로그램 만들기.",
+    link: "https://github.com/9511dasol/Lotto",
   },
   {
-    img: "/p4.jpg",
-    title: "Social Media Project",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "./img/project/shop.png",
+    title: "쇼핑몰 홈페이지",
+    desc: "쿠팡을 참고하여 만든 쇼핑몰 홈페이지.",
+    link: "https://github.com/9511dasol/MiniProject",
   },
   {
-    img: "/p5.jpg",
-    title: "Animated Portfolio Website",
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
-    link: "/",
+    img: "./img/project/Minihomepage.png",
+    title: "싸이월드 미니홈피(클론코딩)",
+    desc: "싸이월드 메인 홈페이지와 미니홈피 클론코딩",
+    link: "https://github.com/9511dasol/MiniProject_2",
+  },
+  {
+    img: "./img/project/inst-clone.png",
+    title: "Instagram clone coding",
+    desc: "인스타그램을 참고하여 만든 인스타그램",
+    link: "https://github.com/9511dasol/instagram-clone",
+  },
+  {
+    img: "./img/project/sdb.png",
+    title: "School Management Dashboard",
+    desc: "학교, 교사, 학생들의 성과와 진행 상황을 한눈에 볼 수 있는 웹사이트",
+    link: "https://github.com/9511dasol/dashboard.git",
+  },
+  {
+    img: "./img/project/portfolio.png",
+    title: "Portfolio",
+    desc: "포트플리오",
+    link: "https://github.com/9511dasol/portfolio",
   },
 ];
 
 export const num = items.length;
-
 const imgVariants = {
   initial: {
     x: -500,
@@ -135,7 +152,7 @@ const Portfolio = () => {
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -window.innerWidth * items.length]
+    [0, -window.innerWidth * (num)]
   );
 
   return (
@@ -153,8 +170,8 @@ const Portfolio = () => {
         ))}
       </motion.div>
       {items.map((item, idx) => (
-          <section key={idx} />
-        ))}
+        <section key={idx} />
+      ))}
       <div className="pProgress">
         <svg width="100%" height="100%" viewBox="0 0 160 160">
           <circle

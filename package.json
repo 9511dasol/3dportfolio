@@ -1,5 +1,4 @@
 {
-  "name": "lama-dev-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +12,7 @@
     "@emailjs/browser": "^4.4.1",
     "@react-three/drei": "^9.120.0",
     "@react-three/fiber": "^8.17.10",
+    "boxicons": "^2.1.4",
     "motion": "^11.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

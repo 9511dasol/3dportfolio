@@ -86,7 +86,7 @@ function Contact() {
               name="user_username"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="John Doe"
+              placeholder="한다솔"
             />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
@@ -96,7 +96,7 @@ function Contact() {
               name="user_email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="john@gmail.com"
+              placeholder="dasol@gmail.com"
             />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
@@ -106,11 +106,11 @@ function Contact() {
               name="user_message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Write your message..."
+              placeholder="문의 내용"
             ></textarea>
           </motion.div>
           <motion.button variants={listVariant} className="formButton">
-            Send
+            보내기
           </motion.button>
           {success && <span>Your message has been sent!</span>}
           {error && <span>Something went wrong!</span>}

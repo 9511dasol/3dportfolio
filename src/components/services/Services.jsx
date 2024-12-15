@@ -41,17 +41,12 @@ const services = [
   {
     img: "/service1.png",
     title: "Web Development",
-    counter: 35,
+    counter: 12,
   },
   {
     img: "/service2.png",
-    title: "Product Design",
-    counter: 23,
-  },
-  {
-    img: "/service3.png",
-    title: "Branding",
-    counter: 46,
+    title: "Rest Project",
+    counter: 5,
   },
 ];
 
@@ -68,7 +63,7 @@ function Services() {
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          How do I help?
+          프로젝트 현황
         </motion.h1>
         <motion.div
           variants={listVariants}
@@ -93,11 +88,11 @@ function Services() {
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={102} text={"Project Completed"} />
-          <Counter from={0} to={72} text={"Happy client"} />
+          <Counter from={0} to={17} text={"Project"} />
+          <Counter from={0} to={15} text={"Project Completed"} />
         </div>
       </div>
-      <div className="sSection right">
+      {/* <div className="sSection right">
         {cur === 0 ? (
           <ComputerModelContainer />
         ) : cur === 1 ? (
@@ -105,7 +100,7 @@ function Services() {
         ) : (
           <ConsoleModelContainer />
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

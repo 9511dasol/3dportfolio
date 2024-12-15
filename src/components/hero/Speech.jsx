@@ -1,6 +1,9 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "motion/react";
-
+const texts = [
+  "안정적이고 확장 가능한 서버 시스템을 구축하는 백엔드 개발자입니다.",
+  "사용자 중심의 웹 인터페이스를 구현하는 프론트엔드 개발자입니다.",
+];
 function Speech() {
   return (
     <motion.div
@@ -12,9 +15,9 @@ function Speech() {
         <TypeAnimation
           sequence={[
             1000,
-            "Same substring at the start will only be typed out once, initially",
+            texts[0],
             1000, // wait 1s before replacing "Mice" with "Hamsters"
-            "Lorem ipsum dolor sit amet lerinat consectetur adipisicing",
+            texts[1],
             1000,
           ]}
           wrapper="span"
@@ -23,7 +26,7 @@ function Speech() {
           repeat={Infinity}
         />
       </div>
-      <img src="/man.png" alt="" />
+      <img src="/my_pic.jpg" alt="" />
     </motion.div>
   );
 }
