@@ -77,10 +77,10 @@ function Contact() {
           animate={isInView ? "animate" : "initial"}
         >
           <motion.h1 variants={listVariant} className="cTitle">
-            Let's keep in touch
+            1:1 문의
           </motion.h1>
           <motion.div variants={listVariant} className="formItem">
-            <label htmlFor="user_username">Name</label>
+            <label htmlFor="user_username">이름</label>
             <input
               type="text"
               name="user_username"
@@ -90,7 +90,7 @@ function Contact() {
             />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
-            <label htmlFor="user_email">Email</label>
+            <label htmlFor="user_email">이메일</label>
             <input
               type="email"
               name="user_email"
@@ -100,7 +100,7 @@ function Contact() {
             />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
-            <label htmlFor="user_message">Message</label>
+            <label htmlFor="user_message">내용</label>
             <textarea
               rows={10}
               name="user_message"
