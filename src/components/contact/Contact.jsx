@@ -33,7 +33,7 @@ function Contact() {
     e.preventDefault();
 
     if (name.length === 0 || email.length === 0 || message.length === 0) {
-      if(name.length === 0) alert("이름을 입력하여주십시오.(2글자 이상)")
+      if (name.length === 0) alert("이름을 입력하여주십시오.(2글자 이상)");
       alert("다시 확인하여 주십시오!");
       return;
     }
@@ -50,6 +50,9 @@ function Contact() {
         () => {
           setError(false);
           alert("메세지가 전송되었습니다.");
+          setName("");
+          setEmail("");
+          setMessage("");
         },
         (error) => {
           console.log("error:", error);
