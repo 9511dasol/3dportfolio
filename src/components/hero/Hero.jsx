@@ -131,16 +131,16 @@ function Hero() {
         {/* BUBBLE */}
         <Speech />
         {/* CERTIFICATE */}
-        {/* <motion.div
+        <motion.div
           className="certificate"
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 1 }}
         >
           <img src="/certificate.png" alt="" />
-          LMA CERTIFICATED <br />
+          IP Engineer CERTIFICATED <br />
           PROFESSIONAL <br />
           UI DESIGNER
-        </motion.div> */}
+        </motion.div>
         {/* CONTACT BUTTON */}
         <motion.a
           href="#contact"
