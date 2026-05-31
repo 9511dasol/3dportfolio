@@ -4,6 +4,18 @@ import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 const items = [
   {
+    img: "./img/project/HRProject.png",
+    title: "HR Project",
+    desc: "HR LAB은 이력서 파싱, 지원자 관리, AI 면접 질문, 일정·면접관 배정, 예약 링크 발송까지 실제 채용 프로세스를 하나의 포털로 연결합니다.",
+    link: "https://www.ai-hr.kr/",
+  },
+  {
+    img: "./img/project/Factory_DASHBOARD.png",
+    title: "Factory DASHBOARD",
+    desc: "공장 생산 데이터를 실시간으로 모니터링하고 분석할 수 있는 대시보드 개발.",
+    link: "https://github.com/9511dasol/Factory-DASHBOARD",
+  },
+  {
     img: "./img/project/card.png",
     title: "카드를 추천해주는 청년들",
     desc: "AI(자연어 처리)를 이용한 카드 추천 웹사이트 제작.",
@@ -50,10 +62,10 @@ const items = [
     title: "Portfolio",
     desc: "포트플리오",
     link: "https://github.com/9511dasol/portfolio",
+    inProgress: true,
   },
 ];
 
-export const num = items.length;
 const imgVariants = {
   initial: {
     x: -500,
@@ -89,7 +101,7 @@ const textVariants = {
   },
 };
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, index }) => {
   const ref = useRef();
 
   const isInView = useInView(ref, { margin: "-100px" });
@@ -101,17 +113,35 @@ const ListItem = ({ item }) => {
         animate={isInView ? "animate" : "initial"}
         className="pImg"
       >
-        <img src={item.img} alt="" />
+        <img src={item.img} alt={item.title} />
+        <div className="pImgOverlay">
+          <span>↗</span>
+        </div>
       </motion.div>
       <motion.div
         variants={textVariants}
         animate={isInView ? "animate" : "initial"}
         className="pText"
       >
+        <motion.div variants={textVariants} className="pMeta">
+          <span className="pNum">{String(index + 1).padStart(2, "0")}</span>
+          {item.inProgress && (
+            <span className="pBadge">
+              <span className="pBadgeDot" />
+              진행중
+            </span>
+          )}
+        </motion.div>
         <motion.h1 variants={textVariants}>{item.title}</motion.h1>
         <motion.p variants={textVariants}>{item.desc}</motion.p>
-        <motion.a variants={textVariants} href={item.link}>
-          <button>View Project</button>
+        <motion.a
+          variants={textVariants}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pLink"
+        >
+          View Project <span>→</span>
         </motion.a>
       </motion.div>
     </div>
@@ -152,11 +182,11 @@ const Portfolio = () => {
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -window.innerWidth * (num)]
+    [0, -window.innerWidth * (items.length)]
   );
 
   return (
-    <div className="portfolio" ref={ref}>
+    <div className="portfolio" ref={ref} style={{ height: `${(1 + items.length) * 100}vh` }}>
       <motion.div className="pList" style={{ x: xTranslate }}>
         <div
           className="empty"
@@ -166,7 +196,7 @@ const Portfolio = () => {
           }}
         />
         {items.map((item, idx) => (
-          <ListItem item={item} key={idx} />
+          <ListItem item={item} key={idx} index={idx} />
         ))}
       </motion.div>
       {items.map((item, idx) => (

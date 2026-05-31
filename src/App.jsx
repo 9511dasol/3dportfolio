@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import LazyLoad from "react-lazy-load";
-import { num } from "./components/portfolio/Portfolio";
+import { NUM_PORTFOLIO_ITEMS } from "./components/portfolio/portfolioConstants";
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
 const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
@@ -20,7 +20,7 @@ const App = () => {
         </LazyLoad>
       </Suspense>
       <Suspense fallback={"loading..."}>
-        <LazyLoad height={`${(1 + num) * 100}vh`} offset={-100}>
+        <LazyLoad height={`${(1 + NUM_PORTFOLIO_ITEMS) * 100}vh`} offset={-100}>
           {/* <section id="#portfo/lio"> */}
           <Portfolio />
         </LazyLoad>

@@ -42,8 +42,8 @@
 
 .hTitle {
     margin-top: 50px;
-    font-size: 90px;
-    color: pink;
+    font-size: 88px;
+    color: #dd4c62;
 }
 
 .hTitle span {
@@ -94,6 +94,17 @@
 .follow img {
     width: 20px;
     height: 20px;
+}
+
+.follow a,
+.follow > a > i {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: block;
+}
+
+.follow a:hover {
+    transform: scale(1.25);
+    opacity: 0.75;
 }
 
 .followTextContainer {
@@ -161,6 +172,12 @@
 
 .contactLink {
     margin-bottom: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.contactLink:hover {
+    transform: scale(1.07);
 }
 
 .contactButton {
@@ -219,7 +236,7 @@
     }
 
     .hTitle {
-        font-size: 68px;
+        font-size: 64px;
     }
 }
 
@@ -267,6 +284,6 @@
     }
 
     .hTitle {
-        font-size: 72px;
+        font-size: 48px;
     }
 }

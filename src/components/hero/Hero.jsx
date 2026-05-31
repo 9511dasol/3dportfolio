@@ -40,7 +40,7 @@ function Hero() {
           transition={{ duration: 1 }}
           className="hTitle"
         >
-          Hi! <br /> <span>I'm Dasol Han.</span>
+          Hi! <br /> <span>{"I'm Dasol Han."}</span>
         </motion.h1>
         {/* AWARDS */}
         {/* <motion.div

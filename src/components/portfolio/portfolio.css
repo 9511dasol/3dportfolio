@@ -1,5 +1,4 @@
 .portfolio {
-    height: 900vh;
     position: relative;
   }
   
@@ -66,38 +65,136 @@
     width: 40%;
     border-radius: 20px;
     overflow: hidden;
+    position: relative;
+    cursor: pointer;
   }
-  
+
   .pImg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.45s ease;
+    display: block;
   }
-  
+
+  .pImg:hover img {
+    transform: scale(1.05);
+  }
+
+  .pImgOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .pImgOverlay span {
+    font-size: 52px;
+    color: #fff;
+    transform: translateY(12px);
+    transition: transform 0.35s ease;
+    line-height: 1;
+  }
+
+  .pImg:hover .pImgOverlay {
+    opacity: 1;
+  }
+
+  .pImg:hover .pImgOverlay span {
+    transform: translateY(0);
+  }
+
   .pText {
     width: 40%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
-  
+
+  .pMeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pNum {
+    font-size: 12px;
+    font-weight: 700;
+    color: #dd4c62;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .pBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: rgba(221, 76, 98, 0.12);
+    border: 1px solid rgba(221, 76, 98, 0.35);
+    font-size: 11px;
+    font-weight: 600;
+    color: #dd4c62;
+    letter-spacing: 0.5px;
+  }
+
+  .pBadgeDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #dd4c62;
+    animation: pulseDot 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.6); }
+  }
+
   .pText h1 {
     font-size: 56px;
+    line-height: 1.1;
   }
-  
+
   .pText p {
     font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
   }
-  .pText a {
-    width: fit-content;
-  }
-  .pText button {
-    background-color: pink;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
+
+  .pLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border-radius: 30px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
     font-weight: 500;
-    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    width: fit-content;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .pLink span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .pLink:hover {
+    background-color: #dd4c62;
+    border-color: #dd4c62;
+  }
+
+  .pLink:hover span {
+    transform: translateX(5px);
   }
   
   @media (max-width: 1536px) {
@@ -115,20 +212,42 @@
   @media (max-width: 1024px) {
     .pItem {
       flex-direction: column;
+      gap: 30px;
     }
-  
+
     .pImg,
     .pText {
       width: 80%;
     }
-  
+
+    .pText h1 {
+      font-size: 40px;
+    }
+
     .pProgress {
       bottom: 100px;
       left: 100%;
     }
   }
-  
+
   @media (max-width: 768px) {
+    .pItem {
+      gap: 16px;
+    }
+
+    .pImg,
+    .pText {
+      width: 90%;
+    }
+
+    .pText {
+      gap: 12px;
+    }
+
+    .pText h1 {
+      font-size: 28px;
+    }
+
     .pProgress {
       width: 50px;
       height: 50px;

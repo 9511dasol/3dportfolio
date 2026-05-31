@@ -112,7 +112,7 @@ function Contact() {
               placeholder="문의 내용"
             ></textarea>
           </motion.div>
-          <motion.button variants={listVariant} className="formButton">
+          <motion.button variants={listVariant} className="formButton" type="submit">
             보내기
           </motion.button>
           {success && <span>Your message has been sent!</span>}

@@ -28,32 +28,76 @@
     background-color: rgba(2, 2, 45, 0.066);
     padding: 50px;
     border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
   
   input,
   textarea {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
-  
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #dd4c62;
+    box-shadow: 0 0 0 3px rgba(221, 76, 98, 0.18);
+    background-color: rgba(255, 255, 255, 0.07);
+  }
+
   .formItem {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
-  
+
   label {
-    font-size: 13px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
   }
-  
+
   .formButton {
     background-color: #dd4c62;
     color: white;
-    padding: 20px;
+    padding: 16px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  }
+
+  .formButton:hover {
+    background-color: #c93d53;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(221, 76, 98, 0.35);
+  }
+
+  .formButton:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
   
   @media (max-width: 1280px) {

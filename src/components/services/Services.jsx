@@ -37,17 +37,13 @@ const listVariants = {
   },
 };
 
+const projects = [3, 3, 5, 7];
+
 const services = [
-  {
-    img: "/service1.png",
-    title: "Web Development",
-    counter: 12,
-  },
-  {
-    img: "/service2.png",
-    title: "Rest Project",
-    counter: 5,
-  },
+  { year: "2026", count: projects[0], color: "#dd4c62" },
+  { year: "2025", count: projects[1], color: "#025656" },
+  { year: "2024", count: projects[2], color: "#6c5c0c" },
+  { year: "이전", count: projects[3], color: "#4a3d6e" },
 ];
 
 function Services() {
@@ -73,23 +69,26 @@ function Services() {
           {services.map((service, idx) => (
             <motion.div
               variants={listVariants}
-              className="service"
+              className={`service${cur === idx ? " active" : ""}`}
               key={idx}
               onClick={() => setCur(idx)}
             >
-              <div className="serviceIcon">
-                <img src={service.img} alt="" />
+              <div
+                className="serviceYear"
+                style={{ backgroundColor: service.color }}
+              >
+                <span>{service.year}</span>
               </div>
               <div className="serviceInfo">
-                <h2>{service.title}</h2>
-                <h3>{service.counter} Projects</h3>
+                <h2>{service.year}{service.year !== "이전" ? "년" : ""}</h2>
+                <h3>{service.count} Projects</h3>
               </div>
             </motion.div>
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={17} text={"Project"} />
-          <Counter from={0} to={15} text={"Project Completed"} />
+          <Counter from={0} to={projects.reduce((a, b) => a + b, 0)} text={"Project"} />
+          <Counter from={0} to={projects.reduce((a, b) => a + b, 0) - 1} text={"Project Completed"} />
         </div>
       </div>
       {/* <div className="sSection right">

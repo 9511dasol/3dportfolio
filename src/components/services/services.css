@@ -32,20 +32,33 @@
     align-items: center;
     gap: 16px;
     cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.serviceIcon {
-    width: 40px;
+.service:hover {
+    background-color: #3a2a4e;
+    transform: translateX(6px);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.serviceYear {
+    min-width: 56px;
     height: 40px;
-    border-radius: 100%;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 10px;
 }
 
-.serviceIcon img {
-    width: 24px;
-    height: 24px;
+.serviceYear span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .serviceInfo h2 {
@@ -59,16 +72,11 @@
     font-weight: 300;
 }
 
-.service:nth-child(1) .serviceIcon {
-    background-color: #dd4c62;
-}
-
-.service:nth-child(2) .serviceIcon {
-    background-color: #025656;
-}
-
-.service:nth-child(3) .serviceIcon {
-    background-color: #6c5c0c;
+.service.active {
+    border: 1.5px solid rgba(221, 76, 98, 0.4);
+    background-color: #3d2d52;
+    transform: translateX(6px);
+    box-shadow: 0 4px 20px rgba(221, 76, 98, 0.12);
 }
 
 .counterList {
