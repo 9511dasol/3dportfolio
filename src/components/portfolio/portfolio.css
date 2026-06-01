@@ -63,10 +63,31 @@
   
   .pImg {
     width: 40%;
+    aspect-ratio: 16 / 10;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
+  }
+
+  .pImgSkeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 
   .pImg img {
@@ -168,6 +189,39 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
+  .pStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pStackItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pStackItem:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .pStackItem img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
   .pLink {
     display: inline-flex;
     align-items: center;
@@ -246,6 +300,16 @@
 
     .pText h1 {
       font-size: 28px;
+    }
+
+    .pStackItem {
+      font-size: 10px;
+      padding: 4px 9px;
+    }
+
+    .pStackItem img {
+      width: 12px;
+      height: 12px;
     }
 
     .pProgress {

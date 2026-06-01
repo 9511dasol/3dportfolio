@@ -1,70 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./portfolio.css";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-
-const items = [
-  {
-    img: "./img/project/HRProject.png",
-    title: "HR Project",
-    desc: "HR LAB은 이력서 파싱, 지원자 관리, AI 면접 질문, 일정·면접관 배정, 예약 링크 발송까지 실제 채용 프로세스를 하나의 포털로 연결합니다.",
-    link: "https://www.ai-hr.kr/",
-  },
-  {
-    img: "./img/project/Factory_DASHBOARD.png",
-    title: "Factory DASHBOARD",
-    desc: "공장 생산 데이터를 실시간으로 모니터링하고 분석할 수 있는 대시보드 개발.",
-    link: "https://github.com/9511dasol/Factory-DASHBOARD",
-  },
-  {
-    img: "./img/project/card.png",
-    title: "카드를 추천해주는 청년들",
-    desc: "AI(자연어 처리)를 이용한 카드 추천 웹사이트 제작.",
-    link: "https://github.com/9511dasol/Card",
-  },
-  {
-    img: "./img/project/taja.png",
-    title: "영어 타자 연습",
-    desc: "영어 긴 글 타자 연습 프로그램 만들기.",
-    link: "https://github.com/9511dasol/Eng_Taja_Practice",
-  },
-  {
-    img: "./img/project/lotto.png",
-    title: "Lotto Program",
-    desc: "오픈소스스를 활용한 로또 프로그램 만들기.",
-    link: "https://github.com/9511dasol/Lotto",
-  },
-  {
-    img: "./img/project/shop.png",
-    title: "쇼핑몰 홈페이지",
-    desc: "쿠팡을 참고하여 만든 쇼핑몰 홈페이지.",
-    link: "https://github.com/9511dasol/MiniProject",
-  },
-  {
-    img: "./img/project/Minihomepage.png",
-    title: "싸이월드 미니홈피(클론코딩)",
-    desc: "싸이월드 메인 홈페이지와 미니홈피 클론코딩",
-    link: "https://github.com/9511dasol/MiniProject_2",
-  },
-  {
-    img: "./img/project/inst-clone.png",
-    title: "Instagram clone coding",
-    desc: "인스타그램을 참고하여 만든 인스타그램",
-    link: "https://github.com/9511dasol/instagram-clone",
-  },
-  {
-    img: "./img/project/sdb.png",
-    title: "School Management Dashboard",
-    desc: "학교, 교사, 학생들의 성과와 진행 상황을 한눈에 볼 수 있는 웹사이트",
-    link: "https://github.com/9511dasol/dashboard.git",
-  },
-  {
-    img: "./img/project/portfolio.png",
-    title: "Portfolio",
-    desc: "포트플리오",
-    link: "https://github.com/9511dasol/portfolio",
-    inProgress: true,
-  },
-];
+import items from "../../data/projects.json";
 
 const imgVariants = {
   initial: {
@@ -103,8 +40,8 @@ const textVariants = {
 
 const ListItem = ({ item, index }) => {
   const ref = useRef();
-
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "-100px", once: true });
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
     <div className="pItem" ref={ref}>
@@ -113,7 +50,14 @@ const ListItem = ({ item, index }) => {
         animate={isInView ? "animate" : "initial"}
         className="pImg"
       >
-        <img src={item.img} alt={item.title} />
+        {!imgLoaded && <div className="pImgSkeleton" />}
+        <img
+          src={item.img}
+          alt={item.title}
+          loading="lazy"
+          onLoad={() => setImgLoaded(true)}
+          style={{ opacity: imgLoaded ? 1 : 0, transition: "opacity 0.4s ease" }}
+        />
         <div className="pImgOverlay">
           <span>↗</span>
         </div>
@@ -134,6 +78,16 @@ const ListItem = ({ item, index }) => {
         </motion.div>
         <motion.h1 variants={textVariants}>{item.title}</motion.h1>
         <motion.p variants={textVariants}>{item.desc}</motion.p>
+        {item.stack?.length > 0 && (
+          <motion.div variants={textVariants} className="pStack">
+            {item.stack.map((tech) => (
+              <div className="pStackItem" key={tech.name}>
+                <img src={tech.icon} alt={tech.name} />
+                <span>{tech.name}</span>
+              </div>
+            ))}
+          </motion.div>
+        )}
         <motion.a
           variants={textVariants}
           href={item.link}
@@ -150,22 +104,16 @@ const ListItem = ({ item, index }) => {
 
 const Portfolio = () => {
   const [containerDistance, setContainerDistance] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     const rect = ref.current.getBoundingClientRect();
-  //     setContainerDistance(rect.left);
-  //   }
-  // }, []);
-
-  // FIX: Re-calculate when screen size changes
   useEffect(() => {
     const calculateDistance = () => {
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
         setContainerDistance(rect.left);
       }
+      setWindowWidth(window.innerWidth);
     };
 
     calculateDistance();
@@ -177,12 +125,15 @@ const Portfolio = () => {
     };
   }, []);
 
-  const { scrollYProgress } = useScroll({ target: ref });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
 
   const xTranslate = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -window.innerWidth * (items.length)]
+    [0, -windowWidth * items.length]
   );
 
   return (
@@ -191,8 +142,7 @@ const Portfolio = () => {
         <div
           className="empty"
           style={{
-            width: window.innerWidth - containerDistance,
-            // backgroundColor: "pink",
+            width: windowWidth - containerDistance,
           }}
         />
         {items.map((item, idx) => (
