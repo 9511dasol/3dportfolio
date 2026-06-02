@@ -2,110 +2,88 @@
   {
     "img": "./img/project/HRProject.png",
     "title": "HR Project",
-    "desc": "HR LAB은 이력서 파싱, 지원자 관리, AI 면접 질문, 일정·면접관 배정, 예약 링크 발송까지 실제 채용 프로세스를 하나의 포털로 연결합니다.",
+    "category": "AI · SaaS",
+    "desc": "이력서 파싱, 지원자 관리, AI 면접 질문 생성, 일정·면접관 배정, 예약 링크 발송까지 실제 채용 프로세스 전반을 하나의 포털로 연결한 HR 플랫폼.",
     "link": "https://www.ai-hr.kr/",
     "stack": [
-      { "name": "React", "icon": "./img/FE/REACT.png" },
-      { "name": "Python", "icon": "./img/BE/PYTHON.png" },
-      { "name": "Spring", "icon": "./img/Framework/Spring.png" },
-      { "name": "MySQL", "icon": "./img/DB/MySQL.jpg" }
+      { "name": "Next.js 16", "icon": "./img/Framework/NEXTJS.png" },
+      { "name": "React 19", "icon": "./img/FE/REACT.png" },
+      { "name": "TypeScript", "icon": "./img/FE/TS.png" },
+      { "name": "TailwindCSS", "icon": "./img/Framework/Tailwind.svg" },
+      { "name": "TanStack Query", "icon": "./img/Framework/TanStack.svg" },
+      { "name": "FastAPI", "icon": "./img/Framework/FastAPI.svg" },
+      { "name": "LangGraph", "icon": "./img/AI/LangChain.svg" },
+      { "name": "OpenAI", "icon": "./img/AI/OpenAI.svg" },
+      { "name": "Gemini", "icon": "./img/AI/Gemini.svg" }
     ]
   },
   {
     "img": "./img/project/Factory_DASHBOARD.png",
     "title": "Factory DASHBOARD",
-    "desc": "공장 생산 데이터를 실시간으로 모니터링하고 분석할 수 있는 대시보드 개발.",
+    "category": "Dashboard",
+    "desc": "공장 생산 데이터를 실시간 모니터링·시각화하는 대시보드. Recharts 기반 차트와 Zustand 전역 상태 관리로 복잡한 데이터를 직관적으로 표현.",
     "link": "https://github.com/9511dasol/Factory-DASHBOARD",
     "stack": [
-      { "name": "React", "icon": "./img/FE/REACT.png" },
-      { "name": "Python", "icon": "./img/BE/PYTHON.png" },
-      { "name": "MySQL", "icon": "./img/DB/MySQL.jpg" }
+      { "name": "Next.js 16", "icon": "./img/Framework/NEXTJS.png" },
+      { "name": "React 19", "icon": "./img/FE/REACT.png" },
+      { "name": "TypeScript", "icon": "./img/FE/TS.png" },
+      { "name": "TailwindCSS v4", "icon": "./img/Framework/Tailwind.svg" },
+      { "name": "Zustand", "icon": "./img/Framework/Zustand.svg" },
+      { "name": "TanStack Query v5", "icon": "./img/Framework/TanStack.svg" }
     ]
   },
   {
     "img": "./img/project/card.png",
     "title": "카드를 추천해주는 청년들",
-    "desc": "AI(자연어 처리)를 이용한 카드 추천 웹사이트 제작.",
+    "category": "AI · Web App",
+    "desc": "자연어 처리(NLP) AI로 사용자 소비 패턴을 분석해 최적의 신용카드를 추천하는 웹 서비스. Flask 백엔드와 MongoDB, TensorFlow 기반 추천 엔진으로 구성.",
     "link": "https://github.com/9511dasol/Card",
     "stack": [
+      { "name": "React", "icon": "./img/FE/REACT.png" },
+      { "name": "TypeScript", "icon": "./img/FE/TS.png" },
       { "name": "Python", "icon": "./img/BE/PYTHON.png" },
       { "name": "Flask", "icon": "./img/Framework/Flask.png" },
-      { "name": "MySQL", "icon": "./img/DB/MySQL.jpg" }
+      { "name": "MongoDB", "icon": "./img/DB/MongoDB.png" },
+      { "name": "TensorFlow", "icon": "./img/BE/TensorFlow.svg" },
+      { "name": "jQuery", "icon": "./img/FE/jquery.png" }
     ]
   },
   {
     "img": "./img/project/taja.png",
     "title": "영어 타자 연습",
-    "desc": "영어 긴 글 타자 연습 프로그램 만들기.",
+    "category": "CLI Tool",
+    "desc": "Linux 터미널에서 동작하는 영어 타자 연습 프로그램. ncurses 라이브러리로 실시간 키 입력 처리, WPM 측정, 진행도 UI를 구현.",
     "link": "https://github.com/9511dasol/Eng_Taja_Practice",
     "stack": [
-      { "name": "HTML5", "icon": "./img/FE/HTML5.png" },
-      { "name": "CSS", "icon": "./img/FE/CSS.png" },
-      { "name": "JavaScript", "icon": "./img/FE/JS.png" }
+      { "name": "C", "icon": "./img/BE/C.png" },
+      { "name": "ncurses", "icon": null }
     ]
   },
   {
     "img": "./img/project/lotto.png",
     "title": "Lotto Program",
-    "desc": "오픈소스를 활용한 로또 프로그램 만들기.",
+    "category": "Desktop App",
+    "desc": ".NET Framework Windows Forms로 제작한 로또 번호 생성 및 당첨 확인 데스크탑 프로그램. 오픈소스 당첨 데이터를 파싱해 자동 조회.",
     "link": "https://github.com/9511dasol/Lotto",
     "stack": [
-      { "name": "Python", "icon": "./img/BE/PYTHON.png" }
-    ]
-  },
-  {
-    "img": "./img/project/shop.png",
-    "title": "쇼핑몰 홈페이지",
-    "desc": "쿠팡을 참고하여 만든 쇼핑몰 홈페이지.",
-    "link": "https://github.com/9511dasol/MiniProject",
-    "stack": [
-      { "name": "HTML5", "icon": "./img/FE/HTML5.png" },
-      { "name": "CSS", "icon": "./img/FE/CSS.png" },
-      { "name": "JavaScript", "icon": "./img/FE/JS.png" },
-      { "name": "jQuery", "icon": "./img/FE/jquery.png" }
-    ]
-  },
-  {
-    "img": "./img/project/Minihomepage.png",
-    "title": "싸이월드 미니홈피(클론코딩)",
-    "desc": "싸이월드 메인 홈페이지와 미니홈피 클론코딩",
-    "link": "https://github.com/9511dasol/MiniProject_2",
-    "stack": [
-      { "name": "HTML5", "icon": "./img/FE/HTML5.png" },
-      { "name": "CSS", "icon": "./img/FE/CSS.png" },
-      { "name": "JavaScript", "icon": "./img/FE/JS.png" }
-    ]
-  },
-  {
-    "img": "./img/project/inst-clone.png",
-    "title": "Instagram clone coding",
-    "desc": "인스타그램을 참고하여 만든 인스타그램",
-    "link": "https://github.com/9511dasol/instagram-clone",
-    "stack": [
-      { "name": "React", "icon": "./img/FE/REACT.png" },
-      { "name": "Node.js", "icon": "./img/BE/nodejs.png" },
-      { "name": "MongoDB", "icon": "./img/DB/MongoDB.png" }
-    ]
-  },
-  {
-    "img": "./img/project/sdb.png",
-    "title": "School Management Dashboard",
-    "desc": "학교, 교사, 학생들의 성과와 진행 상황을 한눈에 볼 수 있는 웹사이트",
-    "link": "https://github.com/9511dasol/dashboard.git",
-    "stack": [
-      { "name": "React", "icon": "./img/FE/REACT.png" },
-      { "name": "Node.js", "icon": "./img/BE/nodejs.png" },
-      { "name": "MySQL", "icon": "./img/DB/MySQL.jpg" }
+      { "name": "C#", "icon": "./img/BE/CSHARP.png" },
+      { "name": ".NET Framework", "icon": "./img/Framework/dotnet.png" },
+      { "name": "Windows Forms", "icon": null }
     ]
   },
   {
     "img": "./img/project/portfolio.png",
     "title": "Portfolio",
-    "desc": "포트폴리오",
+    "category": "Web App",
+    "desc": "현재 보고 계신 3D 인터랙티브 포트폴리오. React Three Fiber 기반 3D 씬, Framer Motion 애니메이션, 수평 스크롤 UI로 구성.",
     "link": "https://github.com/9511dasol/portfolio",
     "inProgress": true,
     "stack": [
+      { "name": "Next.js", "icon": "./img/Framework/NEXTJS.png" },
       { "name": "React", "icon": "./img/FE/REACT.png" },
+      { "name": "TypeScript", "icon": "./img/FE/TS.png" },
+      { "name": "JavaScript", "icon": "./img/FE/JS.png" },
+      { "name": "HTML", "icon": "./img/FE/HTML5.png" },
       { "name": "CSS", "icon": "./img/FE/CSS.png" }
     ]
   }

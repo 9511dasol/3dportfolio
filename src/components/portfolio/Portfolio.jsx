@@ -45,10 +45,13 @@ const ListItem = ({ item, index }) => {
 
   return (
     <div className="pItem" ref={ref}>
-      <motion.div
+      <motion.a
         variants={imgVariants}
         animate={isInView ? "animate" : "initial"}
         className="pImg"
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {!imgLoaded && <div className="pImgSkeleton" />}
         <img
@@ -61,7 +64,7 @@ const ListItem = ({ item, index }) => {
         <div className="pImgOverlay">
           <span>↗</span>
         </div>
-      </motion.div>
+      </motion.a>
       <motion.div
         variants={textVariants}
         animate={isInView ? "animate" : "initial"}
@@ -69,6 +72,7 @@ const ListItem = ({ item, index }) => {
       >
         <motion.div variants={textVariants} className="pMeta">
           <span className="pNum">{String(index + 1).padStart(2, "0")}</span>
+          {item.category && <span className="pCategory">{item.category}</span>}
           {item.inProgress && (
             <span className="pBadge">
               <span className="pBadgeDot" />
@@ -82,7 +86,7 @@ const ListItem = ({ item, index }) => {
           <motion.div variants={textVariants} className="pStack">
             {item.stack.map((tech) => (
               <div className="pStackItem" key={tech.name}>
-                <img src={tech.icon} alt={tech.name} />
+                {tech.icon && <img src={tech.icon} alt={tech.name} />}
                 <span>{tech.name}</span>
               </div>
             ))}
