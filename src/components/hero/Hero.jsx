@@ -63,7 +63,7 @@ function Hero() {
         <motion.a
           animate={{ y: [0, 5], opacity: [0, 1, 0] }}
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-          href="./한다솔__이력서.pdf"
+          href="./portfolio_HDS.pdf"
           download="HDS_Resume.pdf"
           className="scroll"
         >
