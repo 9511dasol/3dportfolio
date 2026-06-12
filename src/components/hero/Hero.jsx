@@ -104,8 +104,8 @@ function Hero() {
         >
           <motion.a
             variants={followVariants}
-            href="/"
-            onClick={() => alert("준비중")}
+            href="https://www.instagram.com/lu_daso/"
+            target="_blank"
           >
             <img src="/instagram.png" alt="" />
           </motion.a>
